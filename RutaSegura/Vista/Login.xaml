@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RutaSegura.Login" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid>
+            <Image Source="Ruta.jpg" Aspect="AspectFill" Opacity="0.8"/>
+            <BoxView Color="White" Opacity="0.8" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Source="logors.png" WidthRequest="150" HeightRequest="150" Margin="0,50,0,30"/>
+                <StackLayout Grid.Row="1" Padding="30,20" >
+                    <Entry x:Name="txtUsuario" Placeholder="Correo Electrónico" PlaceholderColor="#003264"/>
+                    <Entry x:Name="txtContrasena" Placeholder="Contraseña" PlaceholderColor="#003264" IsPassword="True"/>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button x:Name="btnIniciarSesion" Text="   Iniciar Sesión   " BackgroundColor="#003264"  CornerRadius="20" TextColor="White" HorizontalOptions="Center" Clicked="btnIniciarSesion_Clicked" Grid.Row="1" Grid.Column="1" />
+                        <Label Text="En caso de tener una cuenta" HorizontalOptions="Center" VerticalOptions="End" FontSize="14" Grid.Row="2" Grid.Column="1"/>
+                        <Button x:Name="btnRegistrarse" Text="Registrarse" FontAttributes="Bold" BackgroundColor="Transparent"  CornerRadius="30" TextColor="#659899" Clicked="btnRegistrarse_Clicked" Grid.Row="3" Grid.Column="1"/>
+
+                    </Grid>
+                </StackLayout>
+                <!--<StackLayout Grid.Row="2" HorizontalOptions="Center" Margin="0,0,0,50">
+                    <Label Text="Iniciar sesion con" HorizontalOptions="Center" TextColor="#003264"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Image Grid.Row="0" Source="Logoe.png" WidthRequest="45" HeightRequest="45" />
+                        <Image Grid.Row="0" Source="Logoe.png" WidthRequest="45" HeightRequest="45" />
+                        <Image Grid.Row="0" Source="Logoe.png" WidthRequest="45" HeightRequest="45" />
+                    </StackLayout>
+                </StackLayout>-->
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

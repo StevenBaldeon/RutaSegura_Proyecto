@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RutaSegura.Ruta"
+             Title="Ruta" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid>
+            <Image Source="Ruta.jpg" Aspect="AspectFill" Opacity="0.8"/>
+            <BoxView Color="White" Opacity="0.8" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Source="logors.png" WidthRequest="150" HeightRequest="150" Margin="0,50,0,0"/>
+                <StackLayout Grid.Row="1" Padding="30,20" >
+                    <Label Text="INGRESE LA RUTA" FontSize="20" FontAttributes="Bold" TextColor="#003264" HorizontalTextAlignment="Center"/>
+                    <Entry x:Name="txtInicioRuta" Placeholder="Inicio de Ruta" PlaceholderColor="#003264"/>
+                    <Entry x:Name="txtSector" Placeholder="Ingrese el sector" PlaceholderColor="#003264"/>
+                    <Entry x:Name="txtBarrio" Placeholder="Ingrese el barrio" PlaceholderColor="#003264"/>
+                    <Entry x:Name="txtCalleP" Placeholder="Ingrese la calle principal" PlaceholderColor="#003264"/>
+                    <Entry x:Name="txtCalleS" Placeholder="Ingrese la calle secundaria" PlaceholderColor="#003264"/>
+                    <Entry x:Name="txtReferencia" Placeholder="Ingrese una referencia de la ruta" PlaceholderColor="#003264"/>
+                    <Button Margin="0,20,0,0" x:Name="btnIngresarRuta" Text="Ingresar Ruta" BackgroundColor="#003264"  CornerRadius="20" TextColor="White" HorizontalOptions="Center" Clicked="btnIngresarRuta_Clicked" Grid.Row="1" />
+                </StackLayout>
+
+            </Grid>
+        </Grid>
+        <!--sector varchar(50),
+  barrio varchar(50),
+  callePrincipal varchar(100),
+  calle_secundaria varchar(100),
+  referencia varchar(50),-->
+    </ContentPage.Content>
+</ContentPage>

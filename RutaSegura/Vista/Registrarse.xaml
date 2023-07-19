@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RutaSegura.Vista.Registrarse" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid>
+
+            <Image Source="Ruta.jpg" Aspect="AspectFill" Opacity="0.8" />
+            <BoxView Color="#659899" Opacity="0.6" />
+            <Grid VerticalOptions="Start">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="300" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="150"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="isors.png" HorizontalOptions="End" VerticalOptions="Center" Scale="0.8" Grid.Column="2"/>
+            </Grid>
+            
+           
+
+            <Grid VerticalOptions="Center">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="35" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Registro" TextColor="White" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" Grid.Row="0" Grid.Column="1"/>
+
+                <StackLayout Grid.Row="1" Grid.Column="1" Padding="10,20">
+
+                    <Entry x:Name="txtNombre" Placeholder="Ingrese su nombre" PlaceholderColor="LightGray" TextColor="White"/>
+                    <Entry x:Name="txtApellido" Placeholder="Ingrese su apellido" PlaceholderColor="LightGray" TextColor="White" />
+                    <Entry x:Name="txtTelefono" Placeholder="Contacto celular" PlaceholderColor="LightGray" TextColor="White" Keyboard="Telephone" />
+                    <Entry x:Name="txtCorreo" Placeholder="Correo institucional" PlaceholderColor="LightGray" TextColor="White" Keyboard="Email"/>
+                    <Entry x:Name="txtContraseña" Placeholder="Ingrese su contraseña" PlaceholderColor="LightGray" TextColor="White" IsPassword="True"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Fecha de Nacimiento  " TextColor="LightGray" FontSize="18" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center"/>
+                        <DatePicker x:Name="dpFechaNacimiento"  TextColor="White" Date="01/01/2023" Format="MM/dd/yyyy"  Grid.Row="0" Grid.Column="1" />
+
+                    </Grid>
+
+                    <Picker x:Name="pkPerfil"  Title="Conductor o pasajero" TitleColor="LightGray" TextColor="White">
+                        <Picker.Items>
+                            <x:String>Conductor</x:String>
+                            <x:String>Pasajero</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                </StackLayout>
+
+                <Grid Grid.Row="2" Grid.Column="1" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="btnRegistrarse" Text="Crear Cuenta" TextColor="White" FontAttributes="Bold" BackgroundColor="#003264" CornerRadius="30" FontSize="12" Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand" Clicked="btnRegistrarse_Clicked"/>
+                    <Button x:Name="btnCancelar"  Text="Cancelar"       TextColor="White" FontAttributes="Bold" BackgroundColor="#003264" CornerRadius="30" FontSize="12" Grid.Row="0" Grid.Column="2" HorizontalOptions="CenterAndExpand" Clicked="btnCancelar_Clicked"/>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        
+
+    </ContentPage.Content>
+</ContentPage>
