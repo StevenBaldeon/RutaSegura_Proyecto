@@ -12,6 +12,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ViewModels\**" />
+    <Compile Remove="Vista\PesatanaConductor\**" />
+    <Compile Remove="Vista\PestanaPasajero\**" />
+    <EmbeddedResource Remove="ViewModels\**" />
+    <EmbeddedResource Remove="Vista\PesatanaConductor\**" />
+    <EmbeddedResource Remove="Vista\PestanaPasajero\**" />
+    <None Remove="ViewModels\**" />
+    <None Remove="Vista\PesatanaConductor\**" />
+    <None Remove="Vista\PestanaPasajero\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
@@ -22,6 +34,12 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="MisDatos.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="PestanaPasajero.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RutasPasajero.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Vista\Conductor\RegistroVehiculo.xaml">
@@ -48,13 +66,6 @@
     <EmbeddedResource Update="Vista\Registrarse.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Modelo\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Vista\PesatanaConductor\" />
-    <Folder Include="Vista\PestanaPasajero\" />
   </ItemGroup>
 
   <ItemGroup>

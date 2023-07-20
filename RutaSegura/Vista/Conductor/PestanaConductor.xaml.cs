@@ -12,9 +12,11 @@ namespace RutaSegura
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PestanaConductor : TabbedPage
     {
+        
         public PestanaConductor()
         {
             InitializeComponent();
+            
         }
     }
 }

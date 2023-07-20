@@ -10,14 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace RutaSegura
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MisDatos : ContentPage
+    public partial class RutasPasajero : ContentPage
     {
-        
-        public MisDatos()
+        public RutasPasajero()
         {
             InitializeComponent();
-            
-            
         }
     }
 }
