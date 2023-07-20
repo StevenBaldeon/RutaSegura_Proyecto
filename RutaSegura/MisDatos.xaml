@@ -8,7 +8,8 @@
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            
+            <Label x:Name="lblUsuario"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -9,7 +9,7 @@
 
     <local2:RutasConductor/>
     <local:RegistroVehiculo/>    
-    <local:MisDatos/>
+    <!--local:MisDatos/>-->
 
 
 

@@ -31,7 +31,7 @@ namespace RutaSegura
                 contrasena = txtContrasena.Text
             };
 
-            Uri RequestUri = new Uri("http://192.168.100.108/proyectorutasegura/post_usuarios.php");
+            Uri RequestUri = new Uri("http://10.211.55.6/proyectorutasegura/postUsuario.php");
             var client = new HttpClient();
             var json = JsonConvert.SerializeObject(log);
             var contentJson =new StringContent(json, Encoding.UTF8,"aplication/json");
@@ -46,23 +46,23 @@ namespace RutaSegura
                 DisplayAlert("Alerta", "Usuario/Contrasena invalido", "Cerrar");
             }
 
-                //string usuarioc= "conductor";
-                //string contrasenac = "1234";
-                //string usuariop = "pasajero";
-                //string contrasenap = "1234";
+                /*string usuarioc= "conductor";
+                string contrasenac = "1234";
+                string usuariop = "pasajero";
+                string contrasenap = "1234";
 
-                //if (txtUsuario.Text == usuarioc && txtContrasena.Text == contrasenac)
-                //{
-                //    Navigation.PushAsync(new PestanaConductor());
-                //}
-                //if(txtUsuario.Text == usuariop && txtContrasena.Text == contrasenap)
-                //{
-                //    Navigation.PushAsync(new PestanaPasajero());
-                //}
-                //else
-                //{
-                //    DisplayAlert("Alerta", "Usuario/Contrasena invalido", "Cerrar");
-                //}
+                if (txtUsuario.Text == usuarioc && txtContrasena.Text == contrasenac)
+                {
+                    Navigation.PushAsync(new PestanaConductor());
+                }
+                if(txtUsuario.Text == usuariop && txtContrasena.Text == contrasenap)
+                {
+                    Navigation.PushAsync(new PestanaPasajero());
+                }
+                else
+                {
+                    DisplayAlert("Alerta", "Usuario/Contrasena invalido", "Cerrar");
+                }*/
 
 
         }

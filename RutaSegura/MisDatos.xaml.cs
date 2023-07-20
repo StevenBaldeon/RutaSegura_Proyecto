@@ -12,12 +12,14 @@ namespace RutaSegura
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MisDatos : ContentPage
     {
-        
-        public MisDatos()
+        string usuarioglobal;
+        public MisDatos(string usuario)
         {
             InitializeComponent();
-            
-            
+            lblUsuario.Text = usuario;
+            usuarioglobal = usuario;
+
+
         }
     }
 }

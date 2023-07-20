@@ -28,22 +28,27 @@ namespace RutaSegura
             
             string tipo= pTipoVehiculo.SelectedItem.ToString();
 
-            WebClient cliente = new WebClient();
-            var parametros = new System.Collections.Specialized.NameValueCollection();
-            parametros.Add("marca", txtMarca.Text);
-            parametros.Add("modelo", txtModelo.Text);
-            parametros.Add("color", txtColor.Text);
-            parametros.Add("placa", txtPlaca.Text);
-            parametros.Add("tipovehiculo", tipo.ToString());
-            cliente.UploadValues("http://192.168.100.108/proyectorutasegura/post_vehiculos.php", "POST", parametros);
 
-            Navigation.PushAsync(new PestanaConductor());
+            try
+            {
+                WebClient cliente = new WebClient();
+                var parametros = new System.Collections.Specialized.NameValueCollection();
+                parametros.Add("marca", txtMarca.Text);
+                parametros.Add("modelo", txtModelo.Text);
+                parametros.Add("color", txtColor.Text);
+                parametros.Add("placa", txtPlaca.Text);
+                parametros.Add("tipoVehiculo", tipo.ToString() );
+                cliente.UploadValues("http://10.211.55.6/proyectorutasegura/postVehiculo.php", "POST", parametros);
+                Navigation.PushAsync(new PestanaConductor());
+            }
+            catch (Exception ex)
+            {
 
-            var mensaje = "Elemento ingresado con exito";
-            DependencyService.Get<Mensaje>().longAlert(mensaje);
-            
+                DisplayAlert("Alerta", ex.Message, "Cerrar");
+            }
 
-            
+
+
         }
 
         private void btnCancelar_Clicked(object sender, EventArgs e)

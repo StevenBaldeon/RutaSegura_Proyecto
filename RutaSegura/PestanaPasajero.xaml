@@ -4,7 +4,7 @@
              x:Class="RutaSegura.PestanaPasajero" xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" xmlns:local="clr-namespace:RutaSegura"
             android:TabbedPage.ToolbarPlacement="Bottom" NavigationPage.HasBackButton="False">
   
-    <local:MisDatos/>
+    <!--local:MisDatos/>-->
     <local:RutasPasajero/>
     
 </TabbedPage>
