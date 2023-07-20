@@ -48,13 +48,10 @@
     <EmbeddedResource Update="Vista\Conductor\PestanaConductor.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Vista\Conductor\RutaConductor.xaml">
+    <EmbeddedResource Update="Vista\Conductor\Ruta_Conductor.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Vista\Login.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Vista\MisRutas.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Vista\Pestañas.xaml">
@@ -66,11 +63,5 @@
     <EmbeddedResource Update="Vista\Registrarse.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Vista\Conductor\RutaConductor.xaml.cs">
-      <DependentUpon>RutaConductor.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
 </Project>

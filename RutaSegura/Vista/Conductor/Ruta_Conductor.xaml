@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RutaSegura.Ruta"
-             Title="Ruta" NavigationPage.HasNavigationBar="False">
+             x:Class="RutaSegura.Vista.Conductor.Ruta_Conductor"
+             Title="RutasConductor" NavigationPage.HasNavigationBar="False">
+    
     <ContentPage.Content>
         <Grid>
             <Image Source="Ruta.jpg" Aspect="AspectFill" Opacity="0.8"/>
@@ -24,13 +25,7 @@
                     <Entry x:Name="txtReferencia" Placeholder="Ingrese una referencia de la ruta" PlaceholderColor="#003264"/>
                     <Button Margin="0,20,0,0" x:Name="btnIngresarRuta" Text="Ingresar Ruta" BackgroundColor="#003264"  CornerRadius="20" TextColor="White" HorizontalOptions="Center" Clicked="btnIngresarRuta_Clicked" Grid.Row="1" />
                 </StackLayout>
-
             </Grid>
         </Grid>
-        <!--sector varchar(50),
-  barrio varchar(50),
-  callePrincipal varchar(100),
-  calle_secundaria varchar(100),
-  referencia varchar(50),-->
     </ContentPage.Content>
 </ContentPage>

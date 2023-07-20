@@ -31,11 +31,12 @@ namespace RutaSegura
                 contrasena = txtContrasena.Text
             };
 
-            Uri RequestUri = new Uri("http://10.211.55.6/proyectorutasegura/postUsuario.php");
+            Uri RequestUri = new Uri("http://192.168.100.108/proyectorutasegura/post_usuarios.php");
             var client = new HttpClient();
             var json = JsonConvert.SerializeObject(log);
             var contentJson =new StringContent(json, Encoding.UTF8,"aplication/json");
             var response = await client.PostAsync(RequestUri, contentJson);
+            
             if (response.StatusCode ==HttpStatusCode.OK)
             {
                 await Navigation.PushAsync(new PestanaConductor());

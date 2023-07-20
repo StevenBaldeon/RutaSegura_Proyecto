@@ -24,16 +24,18 @@
                     <Entry x:Name="txtModelo" Placeholder="Ingrese el modelo" PlaceholderColor="#003264"/>
                     <Entry x:Name="txtColor" Placeholder="Ingrese el color" PlaceholderColor="#003264"/>
                     <Entry x:Name="txtPlaca" Placeholder="Ingrese la placa (ABC123)" PlaceholderColor="#003264"/>
-                        <Picker x:Name="pTipoVehiculo" Title="Seleccione el tipo de vehiculo" TitleColor="#003264" SelectedIndexChanged="pTipoVehiculo_SelectedIndexChanged">
-                            <Picker.Items>
-                                <x:String>Hatchback</x:String>
-                                <x:String>Sedan</x:String>
-                                <x:String>Moto</x:String>
-                                <x:String>SUV</x:String>
-                                <x:String>Camioneta</x:String>
-                                <x:String>Buseta</x:String>
-                            </Picker.Items>
-                        </Picker>
+                    <Picker x:Name="pTipoVehiculo" Title="Seleccione el tipo de vehiculo" TitleColor="#003264">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>hatchback</x:String>
+                                <x:String>sedan</x:String>
+                                <x:String>moto</x:String>
+                                <x:String>suv</x:String>
+                                <x:String>camineta</x:String>
+                                <x:String>buseta</x:String>
+                            </x:Array>                                
+                        </Picker.ItemsSource>
+                     </Picker>
                         <Button Margin="0,20,0,0" x:Name="btnRegistrarVehiculo" Text="Registrar Vehiculo" BackgroundColor="#003264"  CornerRadius="20" TextColor="White" HorizontalOptions="Center" Clicked="btnRegistrarVehiculo_Clicked" Grid.Row="1" />
                         
                     </StackLayout>

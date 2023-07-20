@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-//[assembly: Xamarin.Forms.Dependency(typeof(MensajeAndroid))
+[assembly: Xamarin.Forms.Dependency(typeof(MensajeAndroid))]
 
 namespace RutaSegura.Droid
 {
