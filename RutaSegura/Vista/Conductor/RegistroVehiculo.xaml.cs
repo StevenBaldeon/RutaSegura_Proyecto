@@ -24,11 +24,6 @@ namespace RutaSegura
 
         private void btnRegistrarVehiculo_Clicked(object sender, EventArgs e)
         {
-            
-            
-            string tipo= pTipoVehiculo.SelectedItem.ToString();
-
-
             try
             {
                 WebClient cliente = new WebClient();
@@ -37,9 +32,12 @@ namespace RutaSegura
                 parametros.Add("modelo", txtModelo.Text);
                 parametros.Add("color", txtColor.Text);
                 parametros.Add("placa", txtPlaca.Text);
-                parametros.Add("tipoVehiculo", tipo.ToString() );
-                cliente.UploadValues("http://10.211.55.6/proyectorutasegura/postVehiculo.php", "POST", parametros);
+                parametros.Add("tipoVehiculo", txtTipoVehiculo.Text );
+                cliente.UploadValues("http://192.168.100.36/ProyectoRutaSegura/post_vehiculos.php", "POST", parametros);
                 Navigation.PushAsync(new PestanaConductor());
+
+                var mensaje = "Vehiculo registrado con éxito";
+                DependencyService.Get<Mensaje>().longAlert(mensaje);
             }
             catch (Exception ex)
             {

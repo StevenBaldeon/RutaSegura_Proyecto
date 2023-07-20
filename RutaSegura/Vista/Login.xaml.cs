@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using RutaSegura.Modelo;
+
 using System.Net.Http;
 using System.Net;
 
@@ -23,9 +23,9 @@ namespace RutaSegura
             InitializeComponent();
         }
 
-        private async  void btnIniciarSesion_Clicked(object sender, EventArgs e)
+        private   void btnIniciarSesion_Clicked(object sender, EventArgs e)
         {
-            Login1 log = new Login1
+            /*Login1 log = new Login1
             {
                 correo = txtUsuario.Text,
                 contrasena = txtContrasena.Text
@@ -43,10 +43,10 @@ namespace RutaSegura
             }
             else
             {
-                DisplayAlert("Alerta", "Usuario/Contrasena invalido", "Cerrar");
-            }
+                await DisplayAlert("Alerta", "Usuario/Contrasena invalido", "Cerrar");
+            }*/
 
-                /*string usuarioc= "conductor";
+                string usuarioc= "conductor";
                 string contrasenac = "1234";
                 string usuariop = "pasajero";
                 string contrasenap = "1234";
@@ -62,7 +62,7 @@ namespace RutaSegura
                 else
                 {
                     DisplayAlert("Alerta", "Usuario/Contrasena invalido", "Cerrar");
-                }*/
+                }
 
 
         }
