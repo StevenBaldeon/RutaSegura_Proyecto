@@ -5,7 +5,7 @@
             android:TabbedPage.ToolbarPlacement="Bottom" NavigationPage.HasBackButton="False">
 
     
-    <local:Ruta/>
+    <local:RutasConductor/>
     <local:RegistroVehiculo/>
     <local:MisDatos/>
     
