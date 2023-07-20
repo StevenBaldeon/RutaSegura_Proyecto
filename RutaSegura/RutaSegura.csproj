@@ -48,7 +48,7 @@
     <EmbeddedResource Update="Vista\Conductor\PestanaConductor.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Vista\Conductor\Ruta_Conductor.xaml">
+    <EmbeddedResource Update="Vista\Conductor\RutasConductor.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Vista\Login.xaml">

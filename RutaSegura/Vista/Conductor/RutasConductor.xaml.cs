@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace RutaSegura.Vista.Conductor
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Ruta_Conductor : ContentPage
+    public partial class RutasConductor : ContentPage
     {
-        public Ruta_Conductor()
+        public RutasConductor()
         {
             InitializeComponent();
         }

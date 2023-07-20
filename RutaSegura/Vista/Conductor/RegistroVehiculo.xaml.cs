@@ -37,7 +37,7 @@ namespace RutaSegura
             parametros.Add("tipovehiculo", tipo.ToString());
             cliente.UploadValues("http://192.168.100.108/proyectorutasegura/post_vehiculos.php", "POST", parametros);
 
-            Navigation.PushAsync(new Mi);
+            Navigation.PushAsync(new PestanaConductor());
 
             var mensaje = "Elemento ingresado con exito";
             DependencyService.Get<Mensaje>().longAlert(mensaje);
@@ -48,7 +48,7 @@ namespace RutaSegura
 
         private void btnCancelar_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Ruta_Conductor());
+            Navigation.PushAsync(new PestanaConductor());
         }
     }
 }
