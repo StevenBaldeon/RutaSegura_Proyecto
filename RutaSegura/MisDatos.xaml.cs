@@ -21,6 +21,8 @@ namespace RutaSegura
 
         }
 
+   
+
         private void btnNombre_Clicked(object sender, EventArgs e)
         {
 

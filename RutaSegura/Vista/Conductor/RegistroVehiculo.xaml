@@ -4,45 +4,44 @@
              x:Class="RutaSegura.RegistroVehiculo"
              Title="Registrar Vehiculo" NavigationPage.HasNavigationBar="False"
             >
-    
+
     <ContentPage.Content >
         <ScrollView>
-        <Grid>
-            <Image Source="Ruta.jpg" Aspect="AspectFill" Opacity="0.8"/>
-            <BoxView Color="White" Opacity="0.8" />
-
             <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Image Grid.Row="0" Source="logors.png" WidthRequest="150" HeightRequest="150" Margin="0,50,0,0"/>
-                <StackLayout Grid.Row="1" Padding="30,20" >
+                <Image Source="Ruta.jpg" Aspect="AspectFill" Opacity="0.8"/>
+                <BoxView Color="White" Opacity="0.8" />
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" Source="logors.png" WidthRequest="150" HeightRequest="150" Margin="0,50,0,0"/>
+                    <StackLayout Grid.Row="1" Padding="30,20" >
                         <Label Text="REGISTRO DE VEHICULO" FontSize="20" FontAttributes="Bold" TextColor="#003264" HorizontalTextAlignment="Center"/>
                         <Entry x:Name="txtMarca" Placeholder="Ingrese la marca" PlaceholderColor="#003264"/>
-                    <Entry x:Name="txtModelo" Placeholder="Ingrese el modelo" PlaceholderColor="#003264"/>
-                    <Entry x:Name="txtColor" Placeholder="Ingrese el color" PlaceholderColor="#003264"/>
-                    <Entry x:Name="txtPlaca" Placeholder="Ingrese la placa (ABC-123)" PlaceholderColor="#003264"/>
-                        <Entry x:Name="txtTipoVehiculo" Placeholder="Ingrese el tipo de vehiculo (SUV,sedan, hatchback)" PlaceholderColor="#003264"/>
-                        <!--<Picker x:Name="pTipoVehiculo" Title="Seleccione el tipo de vehiculo" TitleColor="#003264">
-                        <Picker.ItemsSource>
-                            <x:Array Type="{x:Type x:String}">
-                                <x:String>hatchback</x:String>
-                                <x:String>sedan</x:String>
-                                <x:String>moto</x:String>
-                                <x:String>suv</x:String>
-                                <x:String>camineta</x:String>
-                                <x:String>buseta</x:String>
-                            </x:Array>                                
-                        </Picker.ItemsSource>
-                     </Picker>-->
+                        <Entry x:Name="txtModelo" Placeholder="Ingrese el modelo" PlaceholderColor="#003264"/>
+                        <Entry x:Name="txtColor" Placeholder="Ingrese el color" PlaceholderColor="#003264"/>
+                        <Entry x:Name="txtPlaca" Placeholder="Ingrese la placa (ABC123)" PlaceholderColor="#003264"/>
+                        <Picker x:Name="pTipoVehiculo" Title="Seleccione el tipo de vehiculo" TitleColor="#003264">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>hatchback</x:String>
+                                    <x:String>sedan</x:String>
+                                    <x:String>moto</x:String>
+                                    <x:String>suv</x:String>
+                                    <x:String>camineta</x:String>
+                                    <x:String>buseta</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
                         <Button Margin="0,20,0,0" x:Name="btnRegistrarVehiculo" Text="Registrar Vehiculo" BackgroundColor="#003264"  CornerRadius="20" TextColor="White" HorizontalOptions="Center" Clicked="btnRegistrarVehiculo_Clicked" Grid.Row="1" />
-                        
+
                     </StackLayout>
-                    
+
                 </Grid>
-        </Grid>
+            </Grid>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

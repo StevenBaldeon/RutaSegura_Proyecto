@@ -13,7 +13,7 @@ namespace RutaSegura
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new PestanaConductor());
+            MainPage = new NavigationPage(new Login());
 
         }
 

@@ -23,66 +23,93 @@ namespace RutaSegura
             InitializeComponent();
         }
 
-        private  void btnIniciarSesion_Clicked(object sender, EventArgs e)
+        public void btnIniciarSesion_Clicked(object sender, EventArgs e)
         {
-            
-           
-            /*Login1 log = new Login1
-            {
-                correo = txtUsuario.Text,
-                contrasena = txtContrasena.Text
-            };
+            /* 
+            string correo = txtUsuario.Text;
+            string contrasena = txtContrasena.Text;
 
-            Uri RequestUri = new Uri("http://localhost:8080/login");
-            var client = new HttpClient();
-            var json = JsonConvert.SerializeObject(log);
-            var contentJson =new StringContent(json, Encoding.UTF8,"aplication/json");
-            var response = await client.PostAsync(RequestUri, contentJson);
-            
-            if (response.StatusCode ==HttpStatusCode.OK)
-            {
-                string responseContent = await response.Content.ReadAsStringAsync();
-                var usuario = JsonConvert.DeserializeObject<Login1>(responseContent);
+            WebClient cliente = new WebClient();
+            var parametros = new System.Collections.Specialized.NameValueCollection();
+            parametros.Add("correo", correo);
+            parametros.Add("contrasena", contrasena);
 
-                // Suponiendo que el objeto "usuario" contiene una propiedad "perfil" que indica el perfil del usuario
-                if (usuario.perfil == "conductor")
+            try
+            {
+                // Hacer una solicitud POST al archivo PHP para validar el inicio de sesión
+                byte[] respuesta = cliente.UploadValues("http://10.2.8.66/ProyectoRutaSegura/post_login2.php", "POST", parametros);
+                string resultado = Encoding.UTF8.GetString(respuesta);
+
+                // Analizar la respuesta para validar el inicio de sesión
+                if (resultado == "OK")
                 {
-                    await Navigation.PushAsync(new PestanaConductor());
-                }
-                else if (usuario.perfil == "pasajero")
-                {
-                    await Navigation.PushAsync(new PestanaPasajero());
+                    // Inicio de sesión exitoso: redirigir a la página principal
+                    // Por ejemplo, puedes usar Navigation para navegar a otra página
+                    Navigation.PushAsync(new PestanaConductor());
                 }
                 else
                 {
-                    await DisplayAlert("Alerta", "Perfil de usuario desconocido", "Cerrar");
+                    // Credenciales incorrectas: mostrar un mensaje de error
+                    DisplayAlert("Error", "Credenciales incorrectas. Inténtalo nuevamente.", "Aceptar");
                 }
             }
-            else
+            catch (WebException ex)
             {
-                await DisplayAlert("Alerta", "Usuario/Contraseña inválido", "Cerrar");
-            }*/
-            
-
-                string usuarioc= "conductor";
-                string contrasenac = "1234";
-                string usuariop = "pasajero";
-                string contrasenap = "1234";
-
-            if (txtUsuario.Text == usuarioc && txtContrasena.Text == contrasenac)
-            {
-                Navigation.PushAsync(new MisDatos());
-                Navigation.PushAsync(new PestanaConductor());
-            }
-            if(txtUsuario.Text == usuariop && txtContrasena.Text == contrasenap)
-            {
-                Navigation.PushAsync(new PestanaPasajero());
-            }
-            else
-            {
-                DisplayAlert("Alerta", "Usuario/Contrasena invalido", "Cerrar");
+                // Capturar y manejar errores de conexión o solicitud HTTP aquí
+                DisplayAlert("Error", "No se pudo conectar al servidor. Verifica tu conexión a internet.", "Aceptar");
             }
 
+            */
+
+            string correo = txtUsuario.Text;
+            string contrasena = txtContrasena.Text;
+
+            WebClient cliente = new WebClient();
+            var parametros = new System.Collections.Specialized.NameValueCollection();
+            parametros.Add("correo", correo);
+            parametros.Add("contrasena", contrasena);
+
+            try
+            {
+                // Hacer una solicitud POST al archivo PHP para validar el inicio de sesión
+                byte[] respuesta = cliente.UploadValues("http://10.2.8.66/ProyectoRutaSegura/post_login2.php", "POST", parametros);
+                string resultado = Encoding.UTF8.GetString(respuesta);
+
+                // Analizar la respuesta para validar el inicio de sesión
+                if (resultado == "OK")
+                {
+                    // Inicio de sesión exitoso: obtener el perfil del usuario desde la base de datos
+                    WebClient perfilCliente = new WebClient();
+                    byte[] perfilRespuesta = perfilCliente.UploadValues("http://10.2.8.66/ProyectoRutaSegura/post_ObtenerPerfil.php", "POST", parametros);
+                    string perfilResultado = Encoding.UTF8.GetString(perfilRespuesta);
+
+                    if (perfilResultado == "Conductor")
+                    {
+                        // Redirigir a la página del conductor (PestanaConductor)
+                        Navigation.PushAsync(new PestanaConductor());
+                    }
+                    else if (perfilResultado == "Pasajero")
+                    {
+                        // Redirigir a la página del pasajero (PestanaPasajero)
+                        Navigation.PushAsync(new PestanaPasajero());
+                    }
+                    else
+                    {
+                        // El perfil no es válido: mostrar un mensaje de error
+                        DisplayAlert("Error", "Perfil no válido. Contacta al administrador.", "Aceptar");
+                    }
+                }
+                else
+                {
+                    // Credenciales incorrectas: mostrar un mensaje de error
+                    DisplayAlert("Error", "Credenciales incorrectas. Inténtalo nuevamente.", "Aceptar");
+                }
+            }
+            catch (WebException ex)
+            {
+                // Capturar y manejar errores de conexión o solicitud HTTP aquí
+                DisplayAlert("Error", "No se pudo conectar al servidor. Verifica tu conexión a internet.", "Aceptar");
+            }
 
         }
 

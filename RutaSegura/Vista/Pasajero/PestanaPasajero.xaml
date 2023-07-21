@@ -7,7 +7,7 @@
             xmlns:local2="clr-namespace:RutaSegura.Vista.Conductor"
             android:TabbedPage.ToolbarPlacement="Bottom" NavigationPage.HasBackButton="False">
   
-    <!--local:MisDatos/>-->
+    <local:MisDatos/>
     <local:RutasPasajero/>
     
     

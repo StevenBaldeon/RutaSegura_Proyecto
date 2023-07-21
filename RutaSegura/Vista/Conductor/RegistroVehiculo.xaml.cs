@@ -13,37 +13,34 @@ using Xamarin.Forms.Xaml;
 
 namespace RutaSegura
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class RegistroVehiculo : ContentPage
-	{
-        
-        public RegistroVehiculo ()
-		{
-			InitializeComponent ();
-		}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class RegistroVehiculo : ContentPage
+    {
+
+        public RegistroVehiculo()
+        {
+            InitializeComponent();
+        }
 
         private void btnRegistrarVehiculo_Clicked(object sender, EventArgs e)
         {
-            try
-            {
-                WebClient cliente = new WebClient();
-                var parametros = new System.Collections.Specialized.NameValueCollection();
-                parametros.Add("marca", txtMarca.Text);
-                parametros.Add("modelo", txtModelo.Text);
-                parametros.Add("color", txtColor.Text);
-                parametros.Add("placa", txtPlaca.Text);
-                parametros.Add("tipoVehiculo", txtTipoVehiculo.Text );
-                cliente.UploadValues("http://192.168.100.36/ProyectoRutaSegura/post_vehiculos.php", "POST", parametros);
-                Navigation.PushAsync(new PestanaConductor());
 
-                var mensaje = "Vehiculo registrado con éxito";
-                DependencyService.Get<Mensaje>().longAlert(mensaje);
-            }
-            catch (Exception ex)
-            {
 
-                DisplayAlert("Alerta", ex.Message, "Cerrar");
-            }
+            string tipo = pTipoVehiculo.SelectedItem.ToString();
+
+            WebClient cliente = new WebClient();
+            var parametros = new System.Collections.Specialized.NameValueCollection();
+            parametros.Add("marca", txtMarca.Text);
+            parametros.Add("modelo", txtModelo.Text);
+            parametros.Add("color", txtColor.Text);
+            parametros.Add("placa", txtPlaca.Text);
+            parametros.Add("tipovehiculo", tipo.ToString());
+            cliente.UploadValues("http://10.2.8.66/proyectorutasegura/post_vehiculos.php", "POST", parametros);
+
+            Navigation.PushAsync(new PestanaConductor());
+
+            var mensaje = "Elemento ingresado con exito";
+            DependencyService.Get<Mensaje>().longAlert(mensaje);
 
 
 
