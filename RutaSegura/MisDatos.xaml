@@ -4,12 +4,44 @@
              x:Class="RutaSegura.MisDatos"
              Title="Mi Perfil">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Label x:Name="lblUsuario"/>
+        <Grid>
+            <Image Source="Ruta.jpg" Aspect="AspectFill" Opacity="0.8"/>
+            <BoxView Color="White" Opacity="0.8" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>               
+                </Grid.ColumnDefinitions>
+                <Image Grid.Row="0" Source="logors.png" WidthRequest="150" HeightRequest="150" Margin="0,50,0,0"/>
+                <StackLayout Grid.Row="1" Padding="30,20" >
+                    <Label Text="MI PERFIL" FontSize="20" FontAttributes="Bold" TextColor="#003264" HorizontalTextAlignment="Center"/>
+                    <Button Margin="0,20,0,0" x:Name="btnNombre" Text="Nombre" BackgroundColor="#003264" CornerRadius="20" TextColor="White" HorizontalOptions="Center" Clicked="btnNombre_Clicked" Grid.Row="0" Grid.Column="0"/>
+                    <Button Margin="0,20,0,0" x:Name="btnApellido" Text="Apellido" BackgroundColor="#003264" CornerRadius="20" TextColor="White" HorizontalOptions="Center" Clicked="btnApellido_Clicked" Grid.Row="0" Grid.Column="2"/>
+                    <Button Margin="0,20,0,0" x:Name="btnCelular" Text="Celular" BackgroundColor="#003264" CornerRadius="20" TextColor="White" HorizontalOptions="Center" Clicked="btnCelular_Clicked" Grid.Row="1" Grid.Column="0"/>
+                    <Button Margin="0,20,0,0" x:Name="btnMail" Text="Mail" BackgroundColor="#003264" CornerRadius="20" TextColor="White" HorizontalOptions="Center" Clicked="btnMail_Clicked" Grid.Row="1" Grid.Column="2"/>
+                    <Label Text="MIS RUTAS" FontSize="20" FontAttributes="Bold" TextColor="#003264" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="0"/>
+                    <Button Margin="0,20,0,0" x:Name="btnConductor" Text="Conductor" BackgroundColor="#003264" CornerRadius="20" TextColor="White" HorizontalOptions="Center" Grid.Row="3" Grid.Column="0"/>
+                    <Button Margin="0,20,0,0" x:Name="btnCalificacion" Text="Calificacion" BackgroundColor="#003264" CornerRadius="20" TextColor="White" HorizontalOptions="Center" Grid.Row="3" Grid.Column="2"/>
 
-        </StackLayout>
+                    <Entry x:Name="txtNombre" IsReadOnly="True" Grid.Row="0" Grid.Column="1"/>
+                    <Entry x:Name="txtApellido" IsReadOnly="True" Grid.Row="0" Grid.Column="3"/>
+                    <Entry x:Name="txtCelular" IsReadOnly="True" Grid.Row="1" Grid.Column="1"/>
+                    <Entry x:Name="txtMail" IsReadOnly="True" Grid.Row="1" Grid.Column="3"/>
+                    <Entry x:Name="txtConductor" IsReadOnly="True" Grid.Row="3" Grid.Column="1"/>
+                    <Entry x:Name="txtCalificacion" IsReadOnly="True" Grid.Row="3" Grid.Column="3"/>
+                </StackLayout>
+            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

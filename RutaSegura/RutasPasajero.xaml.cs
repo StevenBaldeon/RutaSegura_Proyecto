@@ -16,5 +16,35 @@ namespace RutaSegura
         {
             InitializeComponent();
         }
+
+        private void btnRuta1_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRuta2_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRuta3_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRuta4_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRuta5_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRegresarMenu_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

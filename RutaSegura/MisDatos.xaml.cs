@@ -21,5 +21,26 @@ namespace RutaSegura
 
 
         }
+
+        private void btnNombre_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnApellido_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCelular_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMail_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
