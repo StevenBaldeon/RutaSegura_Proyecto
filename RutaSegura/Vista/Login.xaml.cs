@@ -23,15 +23,15 @@ namespace RutaSegura
             InitializeComponent();
         }
 
-        private   void btnIniciarSesion_Clicked(object sender, EventArgs e)
+        private async  void btnIniciarSesion_Clicked(object sender, EventArgs e)
         {
-            /*Login1 log = new Login1
+            Login1 log = new Login1
             {
                 correo = txtUsuario.Text,
                 contrasena = txtContrasena.Text
             };
 
-            Uri RequestUri = new Uri("http://10.211.55.6/proyectorutasegura/postUsuario.php");
+            Uri RequestUri = new Uri("http://localhost:8080/login");
             var client = new HttpClient();
             var json = JsonConvert.SerializeObject(log);
             var contentJson =new StringContent(json, Encoding.UTF8,"aplication/json");
@@ -39,30 +39,46 @@ namespace RutaSegura
             
             if (response.StatusCode ==HttpStatusCode.OK)
             {
-                await Navigation.PushAsync(new PestanaConductor());
-            }
-            else
-            {
-                await DisplayAlert("Alerta", "Usuario/Contrasena invalido", "Cerrar");
-            }*/
+                string responseContent = await response.Content.ReadAsStringAsync();
+                var usuario = JsonConvert.DeserializeObject<Login1>(responseContent);
 
-                string usuarioc= "conductor";
-                string contrasenac = "1234";
-                string usuariop = "pasajero";
-                string contrasenap = "1234";
-
-                if (txtUsuario.Text == usuarioc && txtContrasena.Text == contrasenac)
+                // Suponiendo que el objeto "usuario" contiene una propiedad "perfil" que indica el perfil del usuario
+                if (usuario.perfil == "conductor")
                 {
-                    Navigation.PushAsync(new PestanaConductor());
+                    await Navigation.PushAsync(new PestanaConductor());
                 }
-                if(txtUsuario.Text == usuariop && txtContrasena.Text == contrasenap)
+                else if (usuario.perfil == "pasajero")
                 {
-                    Navigation.PushAsync(new PestanaPasajero());
+                    await Navigation.PushAsync(new PestanaPasajero());
                 }
                 else
                 {
-                    DisplayAlert("Alerta", "Usuario/Contrasena invalido", "Cerrar");
+                    await DisplayAlert("Alerta", "Perfil de usuario desconocido", "Cerrar");
                 }
+            }
+            else
+            {
+                await DisplayAlert("Alerta", "Usuario/Contraseña inválido", "Cerrar");
+            }
+            
+
+                //string usuarioc= "conductor";
+                //string contrasenac = "1234";
+                //string usuariop = "pasajero";
+                //string contrasenap = "1234";
+
+            //if (txtUsuario.Text == usuarioc && txtContrasena.Text == contrasenac)
+            //{
+            //    Navigation.PushAsync(new PestanaConductor());
+            //}
+            //if(txtUsuario.Text == usuariop && txtContrasena.Text == contrasenap)
+            //{
+            //    Navigation.PushAsync(new PestanaPasajero());
+            //}
+            //else
+            //{
+            //    DisplayAlert("Alerta", "Usuario/Contrasena invalido", "Cerrar");
+            //}
 
 
         }

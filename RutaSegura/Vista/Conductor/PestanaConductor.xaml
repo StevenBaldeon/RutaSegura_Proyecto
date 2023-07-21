@@ -8,8 +8,9 @@
             android:TabbedPage.ToolbarPlacement="Bottom">
 
     <local2:RutasConductor/>
-    <local:RegistroVehiculo/>    
-    <!--local:MisDatos/>-->
+    <local:RegistroVehiculo/>
+    <local:MisDatos/>
+    <local:RutasPasajero/>
 
 
 
