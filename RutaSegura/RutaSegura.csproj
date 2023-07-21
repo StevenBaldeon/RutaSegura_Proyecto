@@ -39,7 +39,7 @@
     <EmbeddedResource Update="Vista\Pasajero\PestanaPasajero.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="RutasPasajero.xaml">
+    <EmbeddedResource Update="Vista\Pasajero\RutasPasajero.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Vista\Conductor\RegistroVehiculo.xaml">

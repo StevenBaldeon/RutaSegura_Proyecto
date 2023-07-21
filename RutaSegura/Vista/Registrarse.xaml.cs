@@ -34,7 +34,7 @@ namespace RutaSegura.Vista
                 parametros.Add("contrasena", txtContraseña.Text);                
                 parametros.Add("fechaNacimiento", fechaNac );
                 parametros.Add("perfil", perfil);
-                cliente.UploadValues("http://192.168.100.36/ProyectoRutaSegura/post_usuarios.php", "POST", parametros);
+                cliente.UploadValues("http://192.168.56.1/ProyectoRutaSegura/post_usuarios.php", "POST", parametros);
                 Navigation.PushAsync(new Login());
 
                 var mensaje = "Elemento ingresado con éxito";

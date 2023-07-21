@@ -72,7 +72,7 @@ namespace RutaSegura
             try
             {
                 // Hacer una solicitud POST al archivo PHP para validar el inicio de sesión
-                byte[] respuesta = cliente.UploadValues("http://10.2.8.66/ProyectoRutaSegura/post_login2.php", "POST", parametros);
+                byte[] respuesta = cliente.UploadValues("http://192.168.56.1/ProyectoRutaSegura/post_login2.php", "POST", parametros);
                 string resultado = Encoding.UTF8.GetString(respuesta);
 
                 // Analizar la respuesta para validar el inicio de sesión
@@ -80,7 +80,7 @@ namespace RutaSegura
                 {
                     // Inicio de sesión exitoso: obtener el perfil del usuario desde la base de datos
                     WebClient perfilCliente = new WebClient();
-                    byte[] perfilRespuesta = perfilCliente.UploadValues("http://10.2.8.66/ProyectoRutaSegura/post_ObtenerPerfil.php", "POST", parametros);
+                    byte[] perfilRespuesta = perfilCliente.UploadValues("http://192.168.56.1/ProyectoRutaSegura/post_ObtenerPerfil.php", "POST", parametros);
                     string perfilResultado = Encoding.UTF8.GetString(perfilRespuesta);
 
                     if (perfilResultado == "Conductor")
