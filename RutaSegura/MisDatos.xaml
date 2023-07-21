@@ -5,6 +5,7 @@
              Title="Mi Perfil">
     <ContentPage.Content>
         <Grid>
+            <Label x:Name="lblUsuario"/>
             <Image Source="Ruta.jpg" Aspect="AspectFill" Opacity="0.8" />
             <BoxView Color="#659899" Opacity="0.6" />
             <Grid>

@@ -13,6 +13,7 @@ namespace RutaSegura.Vista.Conductor
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RutasConductor : ContentPage
     {
+        
         public RutasConductor()
         {
             InitializeComponent();

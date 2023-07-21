@@ -5,6 +5,8 @@
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" 
             xmlns:local="clr-namespace:RutaSegura"
             xmlns:local2="clr-namespace:RutaSegura.Vista.Conductor"
+    
+
             android:TabbedPage.ToolbarPlacement="Bottom">
 
     <local2:RutasConductor/>

@@ -23,9 +23,11 @@ namespace RutaSegura
             InitializeComponent();
         }
 
-        private async  void btnIniciarSesion_Clicked(object sender, EventArgs e)
+        private  void btnIniciarSesion_Clicked(object sender, EventArgs e)
         {
-            Login1 log = new Login1
+            
+           
+            /*Login1 log = new Login1
             {
                 correo = txtUsuario.Text,
                 contrasena = txtContrasena.Text
@@ -59,26 +61,27 @@ namespace RutaSegura
             else
             {
                 await DisplayAlert("Alerta", "Usuario/Contraseña inválido", "Cerrar");
-            }
+            }*/
             
 
-                //string usuarioc= "conductor";
-                //string contrasenac = "1234";
-                //string usuariop = "pasajero";
-                //string contrasenap = "1234";
+                string usuarioc= "conductor";
+                string contrasenac = "1234";
+                string usuariop = "pasajero";
+                string contrasenap = "1234";
 
-            //if (txtUsuario.Text == usuarioc && txtContrasena.Text == contrasenac)
-            //{
-            //    Navigation.PushAsync(new PestanaConductor());
-            //}
-            //if(txtUsuario.Text == usuariop && txtContrasena.Text == contrasenap)
-            //{
-            //    Navigation.PushAsync(new PestanaPasajero());
-            //}
-            //else
-            //{
-            //    DisplayAlert("Alerta", "Usuario/Contrasena invalido", "Cerrar");
-            //}
+            if (txtUsuario.Text == usuarioc && txtContrasena.Text == contrasenac)
+            {
+                Navigation.PushAsync(new MisDatos());
+                Navigation.PushAsync(new PestanaConductor());
+            }
+            if(txtUsuario.Text == usuariop && txtContrasena.Text == contrasenap)
+            {
+                Navigation.PushAsync(new PestanaPasajero());
+            }
+            else
+            {
+                DisplayAlert("Alerta", "Usuario/Contrasena invalido", "Cerrar");
+            }
 
 
         }
