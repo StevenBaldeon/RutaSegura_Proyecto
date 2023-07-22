@@ -37,15 +37,15 @@
                         <Label Text="APELLIDO"  Grid.Row="1" Grid.Column="0" TextColor="White" FontAttributes="Bold" FontSize="15"/>
                         <Label Text="CELULAR"  Grid.Row="2" Grid.Column="0" TextColor="White" FontAttributes="Bold" FontSize="15"/>
                         <Label Text="EMAIL"  Grid.Row="3" Grid.Column="0" TextColor="White" FontAttributes="Bold" FontSize="15" />
-                        <Entry x:Name="txtNombre" Grid.Row="0" Grid.Column="1" IsReadOnly="True"/>
-                        <Entry x:Name="txtApellido" Grid.Row="1" Grid.Column="1" IsReadOnly="True"/>
-                        <Entry x:Name="txtCelular" Grid.Row="2" Grid.Column="1" IsReadOnly="True"/>
-                        <Entry x:Name="txtEmail" Grid.Row="3" Grid.Column="1" IsReadOnly="True"/>
+                        <Label x:Name="lblNombre" Grid.Row="0" Grid.Column="1" />
+                        <Label x:Name="lblApellido" Grid.Row="1" Grid.Column="1" />
+                        <Label x:Name="lblCelular" Grid.Row="2" Grid.Column="1" />
+                        <Label x:Name="lblEmail" Grid.Row="3" Grid.Column="1" />
                     
                         
                     </Grid>
                 </StackLayout>
-                <Button Margin="0,20,0,0" x:Name="btnCerrarSesion" Text="Cerrar Sesion" BackgroundColor="#003264"  CornerRadius="20" TextColor="White" HorizontalOptions="Center" Clicked="btnCerrarSesion_Clicked" Grid.Row="2" />
+                <Button Margin="0,20,0,20" x:Name="btnCerrarSesion" Text="Cerrar Sesion" BackgroundColor="#003264"  CornerRadius="20" TextColor="White" HorizontalOptions="Center" Clicked="btnCerrarSesion_Clicked" Grid.Row="2" />
 
             </Grid>
             

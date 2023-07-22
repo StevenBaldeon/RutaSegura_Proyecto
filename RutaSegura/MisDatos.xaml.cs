@@ -16,41 +16,19 @@ namespace RutaSegura
         public MisDatos()
         {
             InitializeComponent();
-            
-
-
         }
 
-   
-
-        private void btnNombre_Clicked(object sender, EventArgs e)
+        public MisDatos(Usuario usuario) : this()
         {
-
-        }
-
-        private void btnApellido_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCelular_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnMail_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSalir_Clicked(object sender, EventArgs e)
-        {
-
+            // Mostrar los datos del usuario en los controles de la interfaz de usuario
+            lblNombre.Text = usuario.nombre;
+            lblApellido.Text = usuario.apellido;
+            lblCelular.Text = usuario.telefono;
         }
 
         private void btnCerrarSesion_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new Login());
         }
     }
 }

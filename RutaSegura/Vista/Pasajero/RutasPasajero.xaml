@@ -18,15 +18,38 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Image Grid.Row="0" Source="logors.png" WidthRequest="150" HeightRequest="150" Margin="0,50,0,0"/>
-                <StackLayout Grid.Row="1" Padding="30,20" >
-                    <Label Text="SELECCIONE LA RUTA" FontSize="20" FontAttributes="Bold" TextColor="#003264" HorizontalTextAlignment="Center"/>
-                    <Button Margin="0,20,0,0" x:Name="btnRuta1" Text="Ruta1" BackgroundColor="#003264" CornerRadius="20" TextColor="White" HorizontalOptions="Center" Clicked="btnRuta1_Clicked" Grid.Row="0"/>
-                    <Button Margin="0,20,0,0" x:Name="btnRuta2" Text="Ruta2" BackgroundColor="#003264" CornerRadius="20" TextColor="White" HorizontalOptions="Center" Clicked="btnRuta2_Clicked" Grid.Row="1"/>
-                    <Button Margin="0,20,0,0" x:Name="btnRuta3" Text="Ruta3" BackgroundColor="#003264" CornerRadius="20" TextColor="White" HorizontalOptions="Center" Clicked="btnRuta3_Clicked" Grid.Row="2"/>
-                    <Button Margin="0,20,0,0" x:Name="btnRuta4" Text="Ruta4" BackgroundColor="#003264" CornerRadius="20" TextColor="White" HorizontalOptions="Center" Clicked="btnRuta4_Clicked" Grid.Row="4"/>
-                    <Button Margin="0,20,0,0" x:Name="btnRuta5" Text="Ruta5" BackgroundColor="#003264" CornerRadius="20" TextColor="White" HorizontalOptions="Center" Clicked="btnRuta5_Clicked" Grid.Row="5"/>
-                    <Button Margin="0,20,0,0" x:Name="btnRegresarMenu" Text="Menu" BackgroundColor="#003264" CornerRadius="20" TextColor="White" HorizontalOptions="Center" Clicked="btnRegresarMenu_Clicked" Grid.Row="6"/>
-                </StackLayout>
+                <ListView x:Name="listaVehiculos" Grid.Row="1">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Text="{Binding Sector}" TextColor="Black" FontSize="14" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center"/>
+                                        <Label Text="{Binding Barrio}" TextColor="Black" FontSize="14" Grid.Row="0" Grid.Column="1"/>
+                                        <Label Text="{Binding Calle-Pri}" TextColor="Black" FontSize="14" Grid.Row="0" Grid.Column="2"/>
+                                        <Label Text="{Binding Calle-Sec}" TextColor="Black" FontSize="14" Grid.Row="0" Grid.Column="3" />
+                                        <Label Text="{Binding Referencia}" TextColor="Black" FontSize="14" Grid.Row="0" Grid.Column="4"/>
+
+                                    </Grid>
+
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </Grid>
         </Grid>
     </ContentPage.Content>

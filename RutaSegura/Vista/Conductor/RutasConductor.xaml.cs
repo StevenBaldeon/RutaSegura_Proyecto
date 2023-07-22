@@ -31,7 +31,7 @@ namespace RutaSegura.Vista.Conductor
                 parametros.Add("callePrincipal", txtCalleP.Text);
                 parametros.Add("calle_Secundaria", txtCalleS.Text);
                 parametros.Add("referencia", txtReferencia.Text);
-                cliente.UploadValues("http://192.168.100.36/ProyectoRutaSegura/post_ruta.php", "POST", parametros);
+                cliente.UploadValues("http://192.168.100.108/proyectorutasegura/post_ruta.php", "POST", parametros);
                 Navigation.PushAsync(new PestanaConductor());
 
                 var mensaje = "Ruta ingresada con éxito";

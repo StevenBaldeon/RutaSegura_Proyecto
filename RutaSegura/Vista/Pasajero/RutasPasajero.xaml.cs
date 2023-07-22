@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,39 +15,22 @@ namespace RutaSegura
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RutasPasajero : ContentPage
     {
+        private string Url = "http://192.168.100.108/proyectorutasegura/post_ruta.php";
+        private HttpClient cliente = new HttpClient();
+        private ObservableCollection<RutasP> post;
         public RutasPasajero()
         {
             InitializeComponent();
         }
 
-        private void btnRuta1_Clicked(object sender, EventArgs e)
+        protected override async void OnAppearing()
         {
+            base.OnAppearing();
 
-        }
-
-        private void btnRuta2_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnRuta3_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnRuta4_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnRuta5_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnRegresarMenu_Clicked(object sender, EventArgs e)
-        {
-
+            var contenido = await cliente.GetStringAsync(Url);
+            List<RutasP> listaPost = JsonConvert.DeserializeObject<List<RutasP>>(contenido);
+            post = new ObservableCollection<RutasP>(listaPost);
+            listaVehiculos.ItemsSource = post;
         }
     }
 }

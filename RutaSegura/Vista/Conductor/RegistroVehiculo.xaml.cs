@@ -35,7 +35,7 @@ namespace RutaSegura
             parametros.Add("color", txtColor.Text);
             parametros.Add("placa", txtPlaca.Text);
             parametros.Add("tipovehiculo", tipo.ToString());
-            cliente.UploadValues("http://192.168.56.1/proyectorutasegura/post_vehiculos.php", "POST", parametros);
+            cliente.UploadValues("http://192.168.100.108/proyectorutasegura/post_vehiculos.php", "POST", parametros);
 
             Navigation.PushAsync(new PestanaConductor());
 

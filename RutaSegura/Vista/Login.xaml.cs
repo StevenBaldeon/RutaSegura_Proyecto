@@ -23,9 +23,8 @@ namespace RutaSegura
             InitializeComponent();
         }
 
-        public void btnIniciarSesion_Clicked(object sender, EventArgs e)
+        public async void btnIniciarSesion_Clicked(object sender, EventArgs e)
         {
-            /* 
             string correo = txtUsuario.Text;
             string contrasena = txtContrasena.Text;
 
@@ -37,79 +36,105 @@ namespace RutaSegura
             try
             {
                 // Hacer una solicitud POST al archivo PHP para validar el inicio de sesión
-                byte[] respuesta = cliente.UploadValues("http://10.2.8.66/ProyectoRutaSegura/post_login2.php", "POST", parametros);
-                string resultado = Encoding.UTF8.GetString(respuesta);
-
-                // Analizar la respuesta para validar el inicio de sesión
-                if (resultado == "OK")
-                {
-                    // Inicio de sesión exitoso: redirigir a la página principal
-                    // Por ejemplo, puedes usar Navigation para navegar a otra página
-                    Navigation.PushAsync(new PestanaConductor());
-                }
-                else
-                {
-                    // Credenciales incorrectas: mostrar un mensaje de error
-                    DisplayAlert("Error", "Credenciales incorrectas. Inténtalo nuevamente.", "Aceptar");
-                }
-            }
-            catch (WebException ex)
-            {
-                // Capturar y manejar errores de conexión o solicitud HTTP aquí
-                DisplayAlert("Error", "No se pudo conectar al servidor. Verifica tu conexión a internet.", "Aceptar");
-            }
-
-            */
-
-            string correo = txtUsuario.Text;
-            string contrasena = txtContrasena.Text;
-
-            WebClient cliente = new WebClient();
-            var parametros = new System.Collections.Specialized.NameValueCollection();
-            parametros.Add("correo", correo);
-            parametros.Add("contrasena", contrasena);
-
-            try
-            {
-                // Hacer una solicitud POST al archivo PHP para validar el inicio de sesión
-                byte[] respuesta = cliente.UploadValues("http://192.168.56.1/ProyectoRutaSegura/post_login2.php", "POST", parametros);
+                byte[] respuesta = cliente.UploadValues("http://192.168.100.108/ProyectoRutaSegura/post_login2.php", "POST", parametros);
                 string resultado = Encoding.UTF8.GetString(respuesta);
 
                 // Analizar la respuesta para validar el inicio de sesión
                 if (resultado == "OK")
                 {
                     // Inicio de sesión exitoso: obtener el perfil del usuario desde la base de datos
-                    WebClient perfilCliente = new WebClient();
-                    byte[] perfilRespuesta = perfilCliente.UploadValues("http://192.168.56.1/ProyectoRutaSegura/post_ObtenerPerfil.php", "POST", parametros);
-                    string perfilResultado = Encoding.UTF8.GetString(perfilRespuesta);
+                    WebClient perfilcliente = new WebClient();
+                    byte[] perfilrespuesta = perfilcliente.UploadValues("http://192.168.100.108/ProyectoRutaSegura/post_ObtenerPerfil.php", "POST", parametros);
+                    string perfilresultado = Encoding.UTF8.GetString(perfilrespuesta);
 
-                    if (perfilResultado == "Conductor")
+                    if (perfilresultado == "Conductor")
                     {
+                        using (HttpClient httpClient = new HttpClient())
+                        {
+                            var datosUsuarioUrl = "http://192.168.100.108/ProyectoRutaSegura/post_ObtenerDatos.php";
+
+                            // Crear un objeto JSON que contiene el correo del usuario
+                            var datosUsuarioJson = new { correo = correo };
+
+                            var contenido = new StringContent(JsonConvert.SerializeObject(datosUsuarioJson), Encoding.UTF8, "application/json");
+
+                            // Enviar la solicitud POST al servidor
+                            var respuestaDatosUsuario = await httpClient.PostAsync(datosUsuarioUrl, contenido);
+
+                            if (respuestaDatosUsuario.IsSuccessStatusCode)
+                            {
+                                // Leer la respuesta JSON y deserializarla en un objeto Usuario
+                                var contenidoRespuesta = await respuestaDatosUsuario.Content.ReadAsStringAsync();
+                                var usuario = JsonConvert.DeserializeObject<Usuario>(contenidoRespuesta);
+
+                                // Redirigir a la página MisDatos, enviando los datos del usuario como parámetro
+                                await Navigation.PushAsync(new MisDatos(usuario));
+                            }
+                            else
+                            {
+                                
+                            }
+                        }
                         // Redirigir a la página del conductor (PestanaConductor)
-                        Navigation.PushAsync(new PestanaConductor());
+                        await Navigation.PushAsync(new PestanaConductor());
+                        
                     }
-                    else if (perfilResultado == "Pasajero")
+                    else if (perfilresultado == "Pasajero")
                     {
+                        using (HttpClient httpClient = new HttpClient())
+                        {
+                            var datosUsuarioUrl = "http://192.168.100.108/ProyectoRutaSegura/post_ObtenerDatos.php";
+
+                            // Crear un objeto JSON que contiene el correo del usuario
+                            var datosUsuarioJson = new { correo = correo };
+
+                            var contenido = new StringContent(JsonConvert.SerializeObject(datosUsuarioJson), Encoding.UTF8, "application/json");
+
+                            // Enviar la solicitud POST al servidor
+                            var respuestaDatosUsuario = await httpClient.PostAsync(datosUsuarioUrl, contenido);
+
+                            if (respuestaDatosUsuario.IsSuccessStatusCode)
+                            {
+                                // Leer la respuesta JSON y deserializarla en un objeto Usuario
+                                var contenidoRespuesta = await respuestaDatosUsuario.Content.ReadAsStringAsync();
+                                var usuario = JsonConvert.DeserializeObject<Usuario>(contenidoRespuesta);
+
+                                // Redirigir a la página MisDatos, enviando los datos del usuario como parámetro
+                                await Navigation.PushAsync(new MisDatos(usuario));
+                            }
+                            else
+                            {
+
+                            }
+                        }
                         // Redirigir a la página del pasajero (PestanaPasajero)
-                        Navigation.PushAsync(new PestanaPasajero());
+                        await Navigation.PushAsync(new PestanaPasajero());
                     }
+
+
+
                     else
                     {
                         // El perfil no es válido: mostrar un mensaje de error
-                        DisplayAlert("Error", "Perfil no válido. Contacta al administrador.", "Aceptar");
+                        await DisplayAlert("Error", "Perfil no válido. Contacta al administrador.", "Aceptar");
                     }
+
+
+
                 }
                 else
                 {
                     // Credenciales incorrectas: mostrar un mensaje de error
-                    DisplayAlert("Error", "Credenciales incorrectas. Inténtalo nuevamente.", "Aceptar");
+                     await DisplayAlert("Error", "Credenciales incorrectas. Inténtalo nuevamente.", "Aceptar");
                 }
             }
             catch (WebException ex)
             {
                 // Capturar y manejar errores de conexión o solicitud HTTP aquí
-                DisplayAlert("Error", "No se pudo conectar al servidor. Verifica tu conexión a internet.", "Aceptar");
+                await DisplayAlert("Error", "No se pudo conectar al servidor. Verifica tu conexión a internet.", "Aceptar");
             }
+
+
 
         }
 
